@@ -4,24 +4,45 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" style="background: none transparent">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">COVID19 Registrierung</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content padding="true" *ngIf="scanned" [fullscreen]="true">
+  <div id="container">
+    <ion-item>
+      <p>
+        Die von dir eingetragenen Daten werden mittels E-Mail direkt an den
+        Betreiber weitergeleitet. Wir speichern keinerlei Daten auf unseren
+        Servern und der Betreiber ist verantwortlich, die Daten wie vom
+        Gesetzgeber verlangt nach 14 Tagen wieder zu löschen.
+      </p>
+    </ion-item>
+    <ion-item
+      ><ion-input placeholder="Vorname" [(ngModel)]="firstName"></ion-input
+    ></ion-item>
+    <ion-item
+      ><ion-input placeholder="Nachname" [(ngModel)]="name"></ion-input
+    ></ion-item>
+    <ion-item
+      ><ion-input placeholder="Wohnort" [(ngModel)]="location"></ion-input
+    ></ion-item>
+    <ion-item
+      ><ion-input placeholder="Telefonnummer" [(ngModel)]="tel"></ion-input
+    ></ion-item>
+    <ion-item
+      ><ion-input
+        placeholder="Tisch"
+        [disabled]="data?.table"
+        [(ngModel)]="table"
+      ></ion-input
+    ></ion-item>
+    <ion-item>
+      <ion-label>Daten lokal speichern?</ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
 
-  <div id="container" *ngIf="scanned">
-    <strong>Möchtest du dich in die COVID19 Liste eintragen?</strong>
-    <p>
-      Die von dir eingetragene E-Mail Adresse wird mit Datum und Uhrzeit dem
-      Betreiber zugestellt. Dies als
-    </p>
-    <ion-input placeholder="E-Mail Adresse"></ion-input>
-    <ion-input placeholder="Telefon"></ion-input>
-    <p>Daten lokal speichern für nächstes Mal?</p>
-    <ion-checkbox></ion-checkbox>
-
-    <ion-button expand="full" (click)="register()">Eintragen</ion-button>
+    <ion-button
+      expand="full"
+      [disabled]="!firstName || !name || !location || !tel || !table"
+      (click)="register()"
+      >Registrieren</ion-button
+    >
   </div>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component, OnInit, ApplicationRef } from "@angular/core";
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
+import { QRScanner, QRScannerStatus } from "@ionic-native/qr-scanner/ngx";
 
 @Component({
   selector: "app-home",
@@ -9,7 +9,17 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 export class HomePage implements OnInit {
   protected scanned: boolean;
 
+  firstName: String;
+  name: String;
+  location: String;
+  tel: String;
+  table: String;
+
   constructor(private qrScanner: QRScanner, private appRef: ApplicationRef) {}
+
+  register() {
+    // api call..
+  }
 
   // Optionally request the permission early
   ngOnInit() {
