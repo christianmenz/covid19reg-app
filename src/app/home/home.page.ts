@@ -22,9 +22,7 @@ export class HomePage implements OnInit {
           // start scanning
           let scanSub = this.qrScanner.scan().subscribe((text: string) => {
             console.log("Scanned something", text);
-
             this.scanned = true;
-
             this.qrScanner.hide(); // hide camera preview
             scanSub.unsubscribe(); // stop scanning
             this.appRef.tick();
