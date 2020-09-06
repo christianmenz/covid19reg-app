@@ -1,0 +1,7 @@
+{
+  "name": "covid-reg",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
