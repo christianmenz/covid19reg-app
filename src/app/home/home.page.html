@@ -1,20 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> COVID19 Registrierung </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" style="background: none transparent">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">COVID19 Registrierung</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  {{scanned}}
+
+  <div id="container" *ngIf="scanned">
+    <strong>Möchtest du dich in die COVID19 Liste eintragen?</strong>
+    <p>
+      Die von dir eingetragene E-Mail Adresse wird mit Datum und Uhrzeit dem
+      Betreiber zugestellt. Dies als
+    </p>
+    <ion-input placeholder="E-Mail Adresse"></ion-input>
+    <ion-input placeholder="Telefon"></ion-input>
+    <p>Daten lokal speichern für nächstes Mal?</p>
+    <ion-checkbox></ion-checkbox>
+
+    <ion-button expand="full" (click)="register()">Eintragen</ion-button>
   </div>
 </ion-content>
